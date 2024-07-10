@@ -2,8 +2,8 @@
 #include <ESP8266HTTPClient.h>
 #include <DHT.h>
 
-const char* ssid = "Pitch";
-const char* password = "11072003";
+const char* ssid = "IoT_CyberSecurity";
+const char* password = "10072024";
 
 const char* serverIP = "192.168.250.98";
 const int serverPort = 8000;
