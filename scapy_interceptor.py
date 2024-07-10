@@ -6,7 +6,7 @@ def packet_handler(packet):
         ip_packet = packet.getlayer(IP)
         tcp_packet = packet.getlayer(TCP)
         http_payload = bytes(packet.getlayer(Raw).load)
-
+        print(http_payload)
         if ip_packet.dst == "192.168.250.98" and tcp_packet.dport == 8000:
             if b"POST /data" in http_payload:
                 print("\nIntercepted payload:")
@@ -19,7 +19,7 @@ def packet_handler(packet):
                 del packet[TCP].chksum
 
                 send(packet, verbose=0, iface=iface_name)
-                print("Packet intercepted and sent!\n")
+                print("Packet intercepted!\n")
 
 
 iface_name = "Wi-Fi"
